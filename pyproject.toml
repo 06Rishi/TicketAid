@@ -1,0 +1,43 @@
+[project]
+name = "ticketaid"
+version = "0.1.0"
+description = "Banking77 support-ticket triage: fine-tuned encoder, calibration, browser inference"
+requires-python = "==3.11.*"
+dependencies = [
+    "torch>=2.14",
+    "transformers",
+    "datasets",
+    "evaluate",
+    "accelerate",
+    "scikit-learn",
+    "pyyaml",
+    "matplotlib",
+    "onnx",
+    "onnxruntime",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+# Not an installable package: uv only manages the environment.
+[tool.uv]
+package = false
+
+# Pull torch from the CUDA 13.0 wheel index instead of PyPI (which would give a CPU/other build).
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+
+[tool.pytest.ini_options]
+testpaths = ["ml/tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
