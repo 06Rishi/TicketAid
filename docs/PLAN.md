@@ -21,7 +21,7 @@ Task tags: **[M]** Must, needed for v1.0 · **[S]** Should, strong but cuttable 
 
 ## Week 0: Setup (Fri 13 – Sun 15 Nov) · ~3 h
 
-- [ ] [M] Create GitHub repo `ticketaid`. Add `CLAUDE.md`, `docs/PLAN.md`, Python + Node `.gitignore`, and an MIT licence for your code. (0.5 h)
+- [ ] [M] Create GitHub repo `ticketaid`. Add `OBJECTIVE.md`, `docs/PLAN.md`, Python + Node `.gitignore`, and an MIT licence for your code. (0.5 h)
 - [ ] [M] `ml/.venv` with Python 3.11. Install PyTorch with CUDA (use the pytorch.org selector), then `transformers datasets evaluate accelerate scikit-learn pyyaml matplotlib pytest ruff`. Check `torch.cuda.is_available()` and the device name. (1 h)
 - [ ] [M] `web/`: `create-next-app` (TypeScript, Tailwind, App Router) plus shadcn/ui. Connect the repo to Vercel and deploy the blank page. (1 h)
 - [ ] [M] Hugging Face account and write token, saved in `.env` (git-ignored). (0.25 h)
@@ -30,7 +30,7 @@ Task tags: **[M]** Must, needed for v1.0 · **[S]** Should, strong but cuttable 
 
 - [ ] [M] `ml/config.yaml`: seed, model names, hyperparameters (`fp16`, `max_length: 64`, batch 32, epochs 3–5, lr), and the **10 held-out intents**, picked across different priority groups. Record why in the Decision Log. (0.5 h)
 - [ ] [M] `data.py`: load Banking77; stratified 10% validation split from train; open-set split (drop the held-out intents from train and val, and tag their test examples as unknown). Tests: no overlap between splits, held-out intents absent from open-set train. (1.5 h)
-- [ ] [M] `web/public/intent_meta.json`: for all 77 intents, a display name, priority (Urgent/Normal/Low) and reply template. Apply the safety rules in `CLAUDE.md`. Review every template yourself. (2 h)
+- [ ] [M] `web/public/intent_meta.json`: for all 77 intents, a display name, priority (Urgent/Normal/Low) and reply template. Apply the safety rules in `OBJECTIVE.md`. Review every template yourself. (2 h)
 - [ ] [M] `baseline.py`: TF-IDF + logistic regression on the closed set. Write validation accuracy and macro-F1 to `results/`. (1 h)
 - [ ] [M] `train.py`: fine-tune DistilBERT on the closed set on the 3050. Log validation metrics and save the checkpoint (git-ignored). Note the run time. (2 h)
 - [ ] [M] **Browser spike (risk reduction):** load any stock transformers.js text-classification model inside a Next.js Web Worker and print a prediction. Only proves the pipeline works. (1.5 h)
